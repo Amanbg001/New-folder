@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quote of the Day</title>
-    <link rel="stylesheet" href="styles/app.css">
+    <link rel="stylesheet" href="app.css">
 </head>
+
 <body>
     <h1>Quote of the Day</h1>
     <div id="quote-container">
@@ -14,6 +16,16 @@
     </div>
     <button id="get-new-quote">Get New Quote</button>
 
-    <script src="js/script.js"></script>
+    <div id="crud-container">
+        <h2>CRUD Operations</h2>
+        <input type="text" id="quote-input" placeholder="Enter Quote">
+        <input type="text" id="author-input" placeholder="Enter Author">
+        <button id="add-quote">Add Quote</button>
+        <button id="update-quote">Update Quote</button>
+        <button id="delete-quote">Delete Quote</button>
+    </div>
+
+    <script src="script.js"></script>
 </body>
+
 </html>
