@@ -24,8 +24,25 @@
         <button id="update-quote">Update Quote</button>
         <button id="delete-quote">Delete Quote</button>
     </div>
+    <div id="quotes"> </div>
 
-    <script src="script.js"></script>
+    <script>
+        document.getElementById('get-new-quote').addEventListener('click', fetchQuotes);
+
+        async function fetchQuotes() {
+            try {
+                const response = await fetch('http://localhost:8080/api/quotes');
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                const data = await response.json();
+                const quotesDiv = document.getElementById('quotes');
+                quotesDiv.innerHTML = data.map(quote => `<p>${quote.title} - ${quote.author}</p>`).join('');
+            } catch (error) {
+                console.error('Error fetching quotes:', error);
+            }
+        }
+    </script>
 </body>
 
 </html>
