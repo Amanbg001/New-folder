@@ -36,8 +36,10 @@
                     throw new Error(`HTTP error! status: ${response.status}`);
                 }
                 const data = await response.json();
-                const quotesDiv = document.getElementById('quotes');
-                quotesDiv.innerHTML = data.map(quote => `<p>${quote.title} - ${quote.author}</p>`).join('');
+                const randomIndex = Math.floor(Math.random() * data.length);
+                const randomQuote = data[randomIndex];
+                document.getElementById('quote').textContent = randomQuote.title;
+                document.getElementById('author').textContent = randomQuote.author;
             } catch (error) {
                 console.error('Error fetching quotes:', error);
             }
